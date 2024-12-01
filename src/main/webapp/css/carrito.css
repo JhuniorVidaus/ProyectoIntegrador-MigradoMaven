@@ -1,0 +1,151 @@
+.containerproducts{
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.container-ordenes {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.precio{
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.containerproductosgrid{
+    margin: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem,1fr));
+    gap: 1rem;
+}
+
+.containerraaa{
+    border: 4px solid skyblue;
+    height: 100%
+}
+
+.classtitulo{
+    font-weight: 700;
+}
+
+.nombrepr{
+    text-transform: uppercase;
+}
+
+.bgindex{
+    background-color: orange; 
+}
+
+.menubtn{
+    font-weight: 600;
+}
+
+.imgproducto{
+    transition: .5s, color .10s;
+    -webkit-transition: .5s, color .10s;
+    -moz-transition: .5s, color .10s;
+}
+.imgproducto:hover{
+    box-shadow: 0 8px 8px 0 #000000,0 8px 8px 0 #000000;
+    transform: translate(0px,5px);
+    -webkit-transform: translate(0px,5px);
+    -moz-transform:translate(0px,5px);
+}
+
+.carritocontainer {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+}
+
+.conttable {
+    grid-column: span 6;
+}
+
+.contcompra {
+    grid-column: span 2;
+}
+              
+.btncomprar:hover{
+    animation-name: shakefix;
+        -webkit-animation-name: shakefix;
+        -moz-animation-name: shakefix;
+    animation-duration: 1s;
+        -webkit-animation-duration: 1s;
+        -moz-animation-duration: 1s;
+    animation-iteration-count: infinite;
+        -webkit-animation-iteration-count: infinite;
+        -moz-animation-iteration-count: infinite;
+}
+
+    @keyframes shakefix {
+        0%  {transform: translate(1px, 1px);}
+        10% {transform: translate(-1px, -2px);}
+        20% {transform: translate(-3px, 0px);}
+        30% {transform: translate(3px, 2px);}
+        40% {transform: translate(1px, -1px);}
+        50% {transform: translate(-1px, 2px);}
+        60% {transform: translate(-3px, 1px);}
+        70% {transform: translate(3px, 1px);}
+        80% {transform: translate(-1px, -1px);}
+        90% {transform: translate(1px, 2px);}
+        100% {transform: translate(1px, -2px);}
+    }
+              
+    @media screen and (max-width: 992px) {
+        
+        .containerprincipal{
+            margin: 2.5rem;
+        }
+        
+        .carritocontainer {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .font1{
+            font-size: 35px;
+            text-transform: uppercase;
+        }
+        
+        .nombrepr{
+            font-size: 35px;
+        }
+        
+        .precio{
+            font-size: 30px;
+        }
+        
+        .classtitulo{
+            font-size: 40px;
+        }
+        
+        .font2{
+            font-size: 30px;
+        }
+        
+        .footer{
+            font-size: 33px;
+        }
+        
+        .font3{
+            font-size: 37px
+        }
+        
+        .font4{
+            font-size: 32px
+        }
+    }
+    
+    @media (max-width: 1200px) {
+        .desa{
+            display: none;
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .desa2{
+            display: none;
+        }
+    }

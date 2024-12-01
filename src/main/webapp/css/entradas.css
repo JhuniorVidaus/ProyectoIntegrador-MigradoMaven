@@ -1,0 +1,12 @@
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.container-ordenes {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.container-ordenes h3 {
+    text-align: center;
+}

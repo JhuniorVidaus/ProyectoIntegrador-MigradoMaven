@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
+    <!-- Definiciones de Servlets -->
+    <servlet>
+        <servlet-name>Validarlogin</servlet-name>
+        <servlet-class>Controladores.Validarlogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Controlador</servlet-name>
+        <servlet-class>Controladores.Controlador</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorProductos</servlet-name>
+        <servlet-class>Controladores.ControladorProductos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Controladorp</servlet-name>
+        <servlet-class>Controladores.Controladorp</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Controlador_p</servlet-name>
+        <servlet-class>Controladores.Controlador_p</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Contro</servlet-name>
+        <servlet-class>Controladores.Contro</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorCarrito01</servlet-name>
+        <servlet-class>Controladores.ControladorCarrito01</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ValidarLoginCliente</servlet-name>
+        <servlet-class>Controladores.ValidarLoginCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListarOrdenes</servlet-name>
+        <servlet-class>Controladores.ListarOrdenes</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListarPedidos</servlet-name>
+        <servlet-class>Controladores.ListarPedidos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PedidosPorCliente</servlet-name>
+        <servlet-class>Controladores.PedidosPorCliente</servlet-class>
+    </servlet>
+
+    <!-- Mapeos de Servlets -->
+    <servlet-mapping>
+        <servlet-name>Validarlogin</servlet-name>
+        <url-pattern>/Validarlogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Controlador</servlet-name>
+        <url-pattern>/Controlador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorProductos</servlet-name>
+        <url-pattern>/ControladorProductos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Controladorp</servlet-name>
+        <url-pattern>/Controladorp</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Controlador_p</servlet-name>
+        <url-pattern>/Controlador_p</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Contro</servlet-name>
+        <url-pattern>/Contro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorCarrito01</servlet-name>
+        <url-pattern>/ControladorCarrito01</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ValidarLoginCliente</servlet-name>
+        <url-pattern>/ValidarLoginCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarOrdenes</servlet-name>
+        <url-pattern>/ListarOrdenes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarPedidos</servlet-name>
+        <url-pattern>/ListarPedidos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PedidosPorCliente</servlet-name>
+        <url-pattern>/miscompras</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <async-supported>true</async-supported>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+        <welcome-file>paneladmin.jsp</welcome-file>
+        <!-- Puedes agregar más archivos de bienvenida si lo deseas -->
+    </welcome-file-list>
+</web-app>

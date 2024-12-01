@@ -1,0 +1,8 @@
+@media screen and (max-width: 752px) {
+    .popup-alerts{
+        font-size: 33px;
+    }
+    .popup-footer a{
+        font-size: 28px;
+    }
+}

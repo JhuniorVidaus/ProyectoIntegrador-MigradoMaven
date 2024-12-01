@@ -1,0 +1,121 @@
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar{
+     background-color: #096C66;
+ }
+ 
+ .btn-outline-light{
+     margin-left: 10px;
+     border: none;
+ }
+ 
+ .contenido{
+     margin: 1.5rem 0;
+ }
+ 
+ .tienda{
+     color: black;
+     background: white;
+ }
+ 
+ .userinfo{
+     margin-right: 50px;
+ }
+ 
+ .myframe{
+     height: 100%;
+     width: 100%;
+     border: none;
+ }
+ 
+ .t_empleados{
+     text-align: center;
+    font-size: 24px;
+ }
+ 
+ .navbar-brand{
+     font-weight: 900;
+ }
+ 
+ .nosalir{
+     display: none;
+ }
+ 
+ .seccionn{
+     font-weight: 600;
+ }
+
+ @media screen and (max-width: 992px) {
+
+     .font1{
+         text-transform: uppercase;
+         font-size: 30px;
+     }
+     
+     .dropdown-item{
+         text-transform: uppercase
+     }
+
+     .classtitulo{
+         font-size: 37px;
+     }
+
+ }
+ 
+ .containeradmin {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+    margin: 2rem;
+}
+
+.contcontenido {
+    grid-column: span 2;
+}
+
+.conttable {
+    grid-column: span 6;
+}
+
+.contcontenidoorden {
+    grid-column: span 4;
+}
+
+.conttableorden {
+    grid-column: span 4;
+}
+
+@media screen and (max-width: 992px) {
+    
+    .containeradmin {
+            display: flex;
+            flex-direction: column;
+    }
+    
+}
+
+ @media print{
+     .noimprimir1, .btn{
+         display: none;
+     }
+
+     .siimprimir1 {
+         display: flex;
+         justify-content: center;
+     }
+     .imprimirp2{
+         display: contents;
+         gap: 0.3rem;
+     }
+
+    .nosalir{
+        display: block;
+    }
+
+    .conttableorden {
+        grid-column: span 4;
+        width: 130%
+    }
+ }
