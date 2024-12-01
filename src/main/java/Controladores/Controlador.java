@@ -15,20 +15,21 @@ import Modelos.Producto;
 import Modelos.ProductoDAO;
 import Modelos.Proveedor;
 import Modelos.ProveedorDAO;
-import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Controlador extends HttpServlet {
 
+    private static final Logger logger = LogManager.getLogger(Controlador.class);
+    
     java.util.Date ahora = new java.util.Date();
     //aqui estaba el error de 3 horas :'v
     SimpleDateFormat formateador = new SimpleDateFormat("yyyy/MM/dd");
@@ -399,9 +400,11 @@ public class Controlador extends HttpServlet {
                 break;
                 case "GenerarOrden":
                     if (lista.size() == 0) {
+                        logger.warn("Intento de generar una orden sin productos en la lista.");
                         request.getRequestDispatcher("Controlador?menu=OrdenCompra&accion=default").forward(request, response);
                         break;
                     }
+                    logger.info("Iniciando proceso de generación de orden con {} productos.", lista.size()); // Log de información
                     for (int i = 0; i < lista.size(); i++) {
                         Producto pr = new Producto();
                         int cantstock = lista.get(i).getCantidad();
@@ -410,23 +413,29 @@ public class Controlador extends HttpServlet {
                         pr = prdao.buscar(id_producto);
                         int sac = pr.getStock() + cantstock;
                         prdao.actualizarStock(id_producto, sac);
+                        logger.debug("Producto actualizado: ID={} | Cantidad anterior={} | Nueva cantidad={}",
+                        id_producto, pr.getStock(), sac); // Log de depuración
                     }
-
+                    
                     int idEmpleado = (int) request.getSession().getAttribute("idemp");
-
+                    logger.info("Generando orden para el empleado con ID={}", idEmpleado);
                     orc.setId_proveedor(pro.getId_proveedor());
                     orc.setId_empleado(idEmpleado);
                     orc.setNroSerie(numeroserie);
                     orc.setFecha(formateador.format(ahora));
                     odao.guardarOrden(orc);
                     int ido = Integer.parseInt(odao.idOrden());
+                    logger.info("Orden generada exitosamente. ID de orden={}", ido);
                     for (int i = 0; i < lista.size(); i++) {
                         orc = new OrdenCompra();
                         orc.setId_orden(ido);
                         orc.setId_producto(lista.get(i).getId_producto());
                         orc.setCantidad(lista.get(i).getCantidad());
                         odao.guardarDetalleOrden(orc);
+                        logger.debug("Detalle de orden guardado: OrdenID={} | ProductoID={} | Cantidad={}",
+                        ido, lista.get(i).getId_producto(), lista.get(i).getCantidad());
                     }
+                    logger.info("Todos los detalles de la orden se han guardado correctamente.");
                     orc = new OrdenCompra();
                     lista = new ArrayList<>();
                     request.setAttribute("success", "<i class=\"fa-solid fa-circle-check\"></i> Se ha generado la Orden con N° de Serie: ");

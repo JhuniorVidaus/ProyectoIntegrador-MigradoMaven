@@ -12,7 +12,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 /**
  *
  * @author User
@@ -21,6 +22,8 @@ public class Validarlogin extends HttpServlet {
     
     EmpleadoDAO edao=new EmpleadoDAO();
     Empleado em=new Empleado();
+    
+    private static final Logger logger = LogManager.getLogger(Validarlogin.class);
             
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -71,21 +74,26 @@ public class Validarlogin extends HttpServlet {
             String pass = request.getParameter("txtpass");
             em = edao.validar(user, pass);
             if (em.getUsuario() != null) {
+                logger.info("Inicio de sesión exitoso para el usuario: {}", user);
                 request.getSession().setAttribute("usuario", em.getUsuario());
                 request.getSession().setAttribute("idemp", em.getId_empleado());
                 request.getSession().setAttribute("rol", em.getRol());
                 request.getSession().setAttribute("nombreEmpleado", em.getNombre());              
                 response.sendRedirect("paneladmin.jsp");
             } else {    
+                logger.warn("Intento de inicio de sesión fallido para el usuario: {}", user);
                 response.sendRedirect("loginadmin.jsp");
             }
         } else if (menu.equalsIgnoreCase("salir")) {
+            String user = (String) request.getSession().getAttribute("usuario");
+            logger.info("Usuario {} cerró sesión.", user);
             request.getSession().removeAttribute("usuario");
             request.getSession().removeAttribute("idemp");
             request.getSession().removeAttribute("rol");
             request.getSession().removeAttribute("nombreEmpleado");      
             response.sendRedirect("loginadmin.jsp");
         } else {
+            logger.warn("Acción desconocida: {}", menu);
             response.sendRedirect("loginadmin.jsp");
         }
     }
