@@ -6,9 +6,9 @@ import java.sql.PreparedStatement;
 public class ConexionBD {
     Connection con;
     static String driver="com.mysql.cj.jdbc.Driver";
-    static String url="jdbc:mysql://node210010-env-0675024.sp1.br.saveincloud.net.br:3306/bd_lucia?useUnicode=true&characterEncoding=UTF-8";
+    static String url="jdbc:mysql://localhost:3306/bd_lucia?useUnicode=true&characterEncoding=UTF-8";
     static String user="root";
-    static String pass="TFBkqi41779";
+    static String pass="";
     
     public Connection Conexion(){
         try{

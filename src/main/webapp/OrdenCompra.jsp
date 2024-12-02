@@ -18,7 +18,7 @@
         <title>Orden Compra</title>
     </head>
     <body>
-        <div class="t_empleados">NUEVA ORDEN DE PEDIDO</div>
+        <div class="t_empleados">NUEVA ORDEN DE ABASTECIMIENTO</div>
         <br>
         <div class="containeradmin siimprimir1">
             <div class="contcontenidoorden noimprimir1">
@@ -40,7 +40,7 @@
                                     </button>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" name="txtidproveedor" value="${proveedor.getId_proveedor()}" class="form-control" placeholder="Código">
+                                    <input type="text" name="txtidproveedor" value="${proveedor.getId_proveedor()}" class="form-control" placeholder="Código" readonly>
                                 </div>
                             </div>
 
@@ -59,7 +59,7 @@
                                     </button>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" name="txtidproducto" value="${producto.getId_producto()}" class="form-control" placeholder="Código">
+                                    <input type="text" name="txtidproducto" value="${producto.getId_producto()}" class="form-control" placeholder="Código" readonly>
                                 </div>
                             </div>
                             <div class="form-group d-flex">
@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <small>Stock Actual</small>
-                                    <input type="text" name="stock" value="${producto.getStock()}" class="form-control" placeholder="Stock del producto">
+                                    <input type="text" name="stock" value="${producto.getStock()}" class="form-control" placeholder="Stock del producto" readonly>
                                 </div>                               
                             </div>
                             <div class="form-group">

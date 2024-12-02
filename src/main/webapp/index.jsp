@@ -163,28 +163,28 @@
             <h1>PRODUCTOS DISPONIBLES</h1>
         </div>
         <div class="containerproductosgrid">
-            <c:forEach var="p" items="${productos}">                         
-                <div class="containerproducts">
-                    <div class="card containerraaa">
-                        <div class="card-header text-center"> 
-                            <label class="h5 nombrepr">${p.getNombre()}</label>
-                        </div>
-                        <div class="card-body d-flex justify-content-center align-items-center ">
-
-                            <img src="img/${p.getFoto()}" width="200" height="180" class="imgproducto">
-                        </div>
-                        <div class="card-body d-flex justify-content-center align-items-center">
-                            <p class="precio"> S/.${p.getPrecio()} </p>
-                        </div>
-                        <div class="card-footer text-center">
-                            <label class="font1"> ${p.getDescripcion()}  </label>
-                            <div>
-                                <a href="javascript:void(0);" onclick="agregarAlCarrito('ControladorCarrito01?accion=AgregarCarrito&id=${p.getId_producto()}')" class="btn btn-info btncomprar font1">Agregar Carrito</a>                             
+            <c:forEach var="p" items="${productos}">
+                <c:if test="${p.getStock() > 0}">
+                    <div class="containerproducts">
+                        <div class="card containerraaa">
+                            <div class="card-header text-center"> 
+                                <label class="h5 nombrepr">${p.getNombre()}</label>
                             </div>
-                        </div>   
-                    </div>    
-                </div>  
-
+                            <div class="card-body d-flex justify-content-center align-items-center ">
+                                <img src="img/${p.getFoto()}" width="200" height="180" class="imgproducto">
+                            </div>
+                            <div class="card-body d-flex justify-content-center align-items-center">
+                                <p class="precio"> S/.${p.getPrecio()} </p>
+                            </div>
+                            <div class="card-footer text-center">
+                                <label class="font1"> ${p.getDescripcion()}  </label>
+                                <div>
+                                    <a href="javascript:void(0);" onclick="agregarAlCarrito('ControladorCarrito01?accion=AgregarCarrito&id=${p.getId_producto()}')" class="btn btn-info btncomprar font1">Agregar Carrito</a>                             
+                                </div>
+                            </div>   
+                        </div>    
+                    </div>  
+                </c:if>
             </c:forEach>
         </div>
         <br>

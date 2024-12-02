@@ -63,7 +63,7 @@
                             Acciones <i class="fa-solid fa-cog"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownOperaciones">
-                            <a class="dropdown-item font1" href="Controlador?menu=OrdenCompra&accion=default" target="myframe">Nueva Orden de Pedido <i class="fa-solid fa-clipboard"></i></a>
+                            <a class="dropdown-item font1" href="Controlador?menu=OrdenCompra&accion=default" target="myframe">Nueva Orden <i class="fa-solid fa-clipboard"></i></a>
                             <a class="dropdown-item font1" href="ordenes" target="myframe">Ver Entradas <i class="fa-sharp fa-solid fa-truck-ramp-box"></i></a>
                             <a class="dropdown-item font1" href="pedidos" target="myframe">Ver Salidas <i class="fa-solid fa-truck"></i></a>
                             <a class="dropdown-item font1" href="Dashboard.jsp" target="myframe">Ver Dashboard <i class="fa-solid fa-chart-line"></i></a>
